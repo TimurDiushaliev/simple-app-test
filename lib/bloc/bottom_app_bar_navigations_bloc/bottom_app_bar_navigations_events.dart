@@ -1,0 +1,1 @@
+enum BottomAppBarNavigationsEvents{home_page_event, account_page_event}

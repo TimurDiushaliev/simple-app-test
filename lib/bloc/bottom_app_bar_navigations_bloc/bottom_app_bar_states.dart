@@ -1,0 +1,1 @@
+enum BottomAppBarNavigationsStates{home_page_state, account_page_state}
