@@ -9,27 +9,40 @@ class BottomAppBarNavigations extends StatelessWidget {
     BottomAppBarNavigationsBloc _bottomAppBarNavigationsBloc =
         BlocProvider.of<BottomAppBarNavigationsBloc>(context);
     return Container(
-      color: Colors.purple,
       child: BottomAppBar(
+        color: Colors.black,
         shape: CircularNotchedRectangle(),
         child: Row(
           children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.15,
+            ),
             //navigate to home page
             IconButton(
-              icon: Icon(Icons.home),
+              icon: Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
               onPressed: () {
                 _bottomAppBarNavigationsBloc
                     .add(BottomAppBarNavigationsEvents.home_page_event);
               },
             ),
+            Spacer(),
             //navigate to account page
             IconButton(
-              icon: Icon(Icons.account_circle),
+              icon: Icon(
+                Icons.account_circle,
+                color: Colors.white,
+              ),
               onPressed: () {
                 _bottomAppBarNavigationsBloc
                     .add(BottomAppBarNavigationsEvents.account_page_event);
               },
-            )
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.15,
+            ),
           ],
         ),
       ),
