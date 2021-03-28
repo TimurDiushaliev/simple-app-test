@@ -1,12 +1,17 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class IndicatorBloc extends Bloc<int, int> {
+import 'indicator_events.dart';
+import 'indicator_states.dart';
+
+class IndicatorBloc
+    extends Bloc<ChangeIndicatorIndexEvent, IndicatorStates> {
   int index;
-  IndicatorBloc(int initialState) : super(initialState);
+  IndicatorBloc(IndicatorStates initialState) : super(initialState);
 
   @override
-  Stream<int> mapEventToState(int event) async* {
-    index = event;
-    yield index;
+  Stream<IndicatorIndexChangedState> mapEventToState(
+      ChangeIndicatorIndexEvent event) async* {
+    yield IndicatorIndexChangedState(
+        elementIndex: event.elementIndex, indicatorIndex: event.indicatorIndex);
   }
 }

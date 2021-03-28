@@ -7,15 +7,13 @@ import 'package:simpleapptest/bloc/bottom_app_bar_navigations_bloc/bottom_app_ba
 import 'package:simpleapptest/bloc/home_page_blocs/favorite_icon_button_bloc/favorite_icon_button_bloc.dart';
 import 'package:simpleapptest/bloc/home_page_blocs/favorite_icon_button_bloc/favorite_icon_button_states.dart';
 import 'package:simpleapptest/bloc/home_page_blocs/indicator_bloc/indicator_bloc.dart';
+import 'package:simpleapptest/bloc/home_page_blocs/indicator_bloc/indicator_states.dart';
 import 'package:simpleapptest/pages/home_page.dart';
 import 'package:simpleapptest/widgets/bottom_app_bar_navigations/bottom_app_bar_navigations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  //status bar color
-  SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.white));
   runApp(MaterialApp(
       home: BlocProvider(
           create: (context) => BottomAppBarNavigationsBloc(
@@ -30,6 +28,7 @@ class MyApp extends StatelessWidget {
       extendBody: true,
       appBar: AppBar(
         backgroundColor: Colors.black,
+        brightness: Brightness.dark,
         title: Text('Simple App Test'),
         centerTitle: true,
       ),
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
                     PostUnlikedState(),
                   ),
                 ),
-                BlocProvider(create: (context) => IndicatorBloc(0))
+                BlocProvider(create: (context) => IndicatorBloc(IndicatorIndexChangedState(elementIndex: 0, indicatorIndex: 0)))
               ],
               child: HomePage(),
             );
