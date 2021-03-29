@@ -8,7 +8,8 @@ import 'package:simpleapptest/bloc/home_page_blocs/favorite_icon_button_bloc/fav
 import 'package:simpleapptest/bloc/home_page_blocs/favorite_icon_button_bloc/favorite_icon_button_states.dart';
 import 'package:simpleapptest/bloc/home_page_blocs/indicator_bloc/indicator_bloc.dart';
 import 'package:simpleapptest/bloc/home_page_blocs/indicator_bloc/indicator_states.dart';
-import 'package:simpleapptest/pages/authentication_page.dart';
+import 'package:simpleapptest/pages/account_page.dart';
+import 'package:simpleapptest/pages/sign_in_page.dart';
 import 'package:simpleapptest/pages/home_page.dart';
 import 'package:simpleapptest/widgets/bottom_app_bar_navigations/bottom_app_bar_navigations.dart';
 
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
               child: HomePage(),
             );
           if (state == BottomAppBarNavigationsStates.account_page_state)
-            return AuthenticationPage();
+            return AccountPage();
           return Center(
             child: CircularProgressIndicator(),
           );

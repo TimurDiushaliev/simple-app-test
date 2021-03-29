@@ -1,8 +1,13 @@
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
 class AuthenticationService {
-  static Future<String> signIn({@required String email,@required String password}) async {
+  static Stream<User> get authStateChanged =>
+      FirebaseAuth.instance.authStateChanges();
+  static Future<String> signIn(
+      {@required String email, @required String password}) async {
     try {
       FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
       await _firebaseAuth.signInWithEmailAndPassword(
@@ -13,7 +18,8 @@ class AuthenticationService {
     }
   }
 
-  static Future<String> signUp({@required String email,@required String password}) async {
+  static Future<String> signUp(
+      {@required String email, @required String password}) async {
     try {
       FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
       await _firebaseAuth.createUserWithEmailAndPassword(
@@ -22,5 +28,9 @@ class AuthenticationService {
     } on FirebaseAuthException catch (e) {
       return e.message;
     }
+  }
+
+  static Future<void> signOut() async {
+    FirebaseAuth.instance.signOut();
   }
 }

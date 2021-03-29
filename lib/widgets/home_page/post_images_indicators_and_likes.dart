@@ -96,9 +96,11 @@ class PostImagesIndicatorAndLikes extends StatelessWidget {
                 ),
                 onPressed: () {
                   _favoriteIconButtonBloc.add(UnlikePostEvent());
-                  snapshot.reference.update({
-                    if (snapshot['likes'] != 0) 'likes': snapshot['likes'] - 1
-                  });
+                  snapshot.reference.update(
+                    {
+                      if (snapshot['likes'] != 0) 'likes': snapshot['likes'] - 1
+                    },
+                  );
                 },
               );
 
