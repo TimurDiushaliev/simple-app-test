@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simpleapptest/bloc/home_page_blocs/indicator_bloc/indicator_bloc.dart';
 import 'package:simpleapptest/bloc/home_page_blocs/indicator_bloc/indicator_events.dart';
-import 'package:simpleapptest/bloc/home_page_blocs/indicator_bloc/indicator_states.dart';
 
 class PostImagesCarousel extends StatelessWidget {
   final int index;
